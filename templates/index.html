@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Formation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .frame {
+            border: 2px solid #000;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .frame img {
+            height: 100px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="center-align">Word Formation</h3>
+        <form method="POST" action="/" class="center-align">
+            <div class="input-field">
+                <input type="text" id="word" name="word" required>
+                <label for="word">Enter a Word</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Form Word</button>
+        </form>
+
+        {% if images %}
+           <h5 class="center-align">Formed Word: {{ word }}</h5>
+           <div class="frame">
+        {% for image in images %}
+        <img src="{{ image }}" alt="Character">
+        {% endfor %}
+         </div>
+         {% endif %}
+    </div>
+</body>
+</html>
